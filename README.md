@@ -1,1 +1,5 @@
-# aplicacao-provas
+# Aplicação de provas
+
+## Integrantes do Grupo
+- Gustavo Felipe Penha do Monte
+- Lucas Carvalho do Espirito Santo
