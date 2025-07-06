@@ -61,10 +61,11 @@ public class EdicaoFeira {
         for (int i = 0; i<participacoes.length; i++)
         {
             quantidade++;
-        }
-        if (quantidade == participacoes.length)
-        {
-            estaCheio = true;
+
+            if (quantidade == participacoes.length)
+            {
+                estaCheio = true;
+            }
         }
         return estaCheio;
     }
@@ -88,8 +89,8 @@ public class EdicaoFeira {
         }
 
         else
-         {
-            //TODO EXCEPTION
+        {
+            throw new IllegalStateException("Não é possível adicionar mais produtores, limite de bancas atingido");  //TODO Try Catch IllegalStateException
         }
     }
 

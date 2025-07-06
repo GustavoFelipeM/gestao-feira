@@ -15,15 +15,8 @@ public class ProdutoRepositorio extends RepositorioPadrao<Produto>
     {
         if (obj != null)
         {
-            if (obj.getCategoria().equalsIgnoreCase(obj.getProdutorAssociado().getCategoria())) //TODO Talvez implementar categorias fixas por índice
-            {
-                lista.add(obj);
-            }
-            else
-            {
-                //TODO Colocar exception
-            }
-
+             //TODO Talvez implementar categorias fixas por índice
+            lista.add(obj);
         }
     }
 

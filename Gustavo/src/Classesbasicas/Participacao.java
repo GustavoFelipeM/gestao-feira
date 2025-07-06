@@ -46,7 +46,7 @@ public class Participacao {
         }
         else
         {
-            //TODO throw new IllegalStateException("A banca já foi definida e não pode ser alterada.")
+            throw new IllegalStateException("A banca já foi definida e não pode ser alterada."); //TODO Try/Catch IllegalStateException
         }
     }
 
