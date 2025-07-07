@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/gestao-feira.iml" filepath="$PROJECT_DIR$/gestao-feira.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gestao-feira-GUI/gestao-feira-GUI.iml" filepath="$PROJECT_DIR$/gestao-feira-GUI/gestao-feira-GUI.iml" />
     </modules>
   </component>
 </project>
