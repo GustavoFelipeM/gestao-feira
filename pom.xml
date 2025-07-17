@@ -81,7 +81,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                br.ufrpe.gestao_feira.gestaofeira/br.ufrpe.gestao_feira.gestaofeira.HelloApplication
+                                br.ufrpe.gestao_feira.gestaofeira/br.ufrpe.gestao_feira.gui.HelloApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

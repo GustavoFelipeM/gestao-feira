@@ -1,4 +1,4 @@
-package br.ufrpe.gestao_feira.gestaofeira;
+package br.ufrpe.gestao_feira.gui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

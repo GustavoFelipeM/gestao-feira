@@ -1,4 +1,4 @@
-module br.ufrpe.gestao_feira.gestaofeira {
+module br.ufrpe.gestao_feira.gui {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -6,6 +6,6 @@ module br.ufrpe.gestao_feira.gestaofeira {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
 
-    opens br.ufrpe.gestao_feira.gestaofeira to javafx.fxml;
-    exports br.ufrpe.gestao_feira.gestaofeira;
+    opens br.ufrpe.gestao_feira.gui to javafx.fxml;
+    exports br.ufrpe.gestao_feira.gui;
 }
