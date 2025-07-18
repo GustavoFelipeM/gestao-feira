@@ -1,9 +1,11 @@
 package br.ufrpe.gestao_feira.repositorio.abstrato;
+import br.ufrpe.gestao_feira.repositorio.interfaces.IRepositorio;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public abstract class RepositorioPadrao<ClasseBasica>
+public abstract class RepositorioPadrao<ClasseBasica> implements IRepositorio<ClasseBasica>
 {
     protected ArrayList<ClasseBasica> lista;
 
@@ -29,7 +31,7 @@ public abstract class RepositorioPadrao<ClasseBasica>
         return existe;
     }
 
-    public void add(ClasseBasica obj)
+    public void add(ClasseBasica obj) throws Exception
     {
         if (!existe(obj))
         {

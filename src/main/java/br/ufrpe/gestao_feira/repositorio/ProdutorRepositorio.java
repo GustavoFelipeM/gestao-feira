@@ -1,7 +1,9 @@
 package br.ufrpe.gestao_feira.repositorio;
 
 import br.ufrpe.gestao_feira.classesbasicas.Produtor;
+import br.ufrpe.gestao_feira.exceptions.ProdutorExistenteException;
 import br.ufrpe.gestao_feira.repositorio.abstrato.RepositorioPadrao;
+import br.ufrpe.gestao_feira.exceptions.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +32,7 @@ public class ProdutorRepositorio extends RepositorioPadrao<Produtor>
     }
 
     @Override
-    public void add(Produtor obj)
+    public void add(Produtor obj) throws ProdutorExistenteException
     {
         if (!existe(obj))
         {
@@ -39,7 +41,7 @@ public class ProdutorRepositorio extends RepositorioPadrao<Produtor>
 
         else
         {
-            //TODO Criar exception caso o produtor já esteja cadastrado;
+            throw new ProdutorExistenteException(obj);
 
         }
     }
@@ -59,14 +61,31 @@ public class ProdutorRepositorio extends RepositorioPadrao<Produtor>
 
     }
 
-    public void procurarPorCpfCnpj(String cpfCnpj)
+    public Produtor procurarPorCpfCnpj(String cpfCnpj) //TODO adicionar exceptions para parametro nulo e para quando retornar nulo
     {
-        procurarPorNome(cpfCnpj);
+        Produtor p = null;
+        for (Produtor i : lista)
+        {
+            if (i.getCpfCnpj().equalsIgnoreCase(cpfCnpj))
+            {
+                p = i;
+                break;
+            }
+        }
+        return p;
     }
 
-    public void procurarPorCategoria(String categoria)
+    public List<Produtor> procurarPorCategoria(String categoria)
     {
-        procurarPorNome(categoria);
+        List<Produtor> listaDeProdutores = new ArrayList<>();
+        for (Produtor i : lista)
+        {
+            if (i.getCategoria().equalsIgnoreCase(categoria))
+            {
+                listaDeProdutores.add(i);
+            }
+        }
+        return listaDeProdutores;
     }
 
 
