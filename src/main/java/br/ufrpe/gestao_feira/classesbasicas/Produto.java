@@ -10,7 +10,7 @@ public class Produto
     private double preco;
     private Produtor produtorAssociado;
 
-    public Produto(String nome, String descricao, String categoria, double preço, Produtor produtorAssociado)
+    public Produto(String nome, String descricao, String categoria, double preco)
     {
 
         {
@@ -18,7 +18,7 @@ public class Produto
             this.descricao = descricao;
             this.categoria = categoria;
             this.preco = preco;
-            this.setProdutorAssociado(produtorAssociado); //TODO Tirar esse método daí e colocar no controlador
+
         }
     }
 
@@ -59,15 +59,8 @@ public class Produto
     {
         return produtorAssociado;
     }
-    public void setProdutorAssociado(Produtor produtorAssociado) throws ProdutoInvalidoException
+    public void setProdutorAssociado(Produtor produtorAssociado)
     {
-        if (!(categoria != null && !categoria.isEmpty() && produtorAssociado != null && this.categoria.equalsIgnoreCase(produtorAssociado.getCategoria())))
-        {
-           throw new ProdutoInvalidoException(this.categoria, produtorAssociado); //TODO
-        }
-        else
-        {
-            this.produtorAssociado = produtorAssociado;
-        }
+        this.produtorAssociado = produtorAssociado;
     }
 }
