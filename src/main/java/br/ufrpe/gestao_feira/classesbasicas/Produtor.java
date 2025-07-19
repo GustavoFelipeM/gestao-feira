@@ -6,6 +6,7 @@ public class Produtor {
     private String telefone;
     private String email;
     private String categoria;
+    private boolean ativo;
 
     public Produtor(String nome, String cpfCnpj, String telefone, String email, String categoria) {
         this.nome = nome;
@@ -13,6 +14,7 @@ public class Produtor {
         this.telefone = telefone;
         this.email = email;
         this.categoria = categoria;
+        this.ativo = true;
     }
 
     // getters and setters
@@ -56,6 +58,14 @@ public class Produtor {
         this.categoria = categoria;
     }
 
+    public boolean getAtivo()
+    {
+        return ativo;
+    }
+    public void setAtivo(boolean ativo)
+    {
+        this.ativo = ativo;
+    }
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
