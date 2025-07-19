@@ -4,11 +4,12 @@ import br.ufrpe.gestao_feira.classesbasicas.Produtor;
 import br.ufrpe.gestao_feira.exceptions.ProdutorExistenteException;
 import br.ufrpe.gestao_feira.repositorio.abstrato.RepositorioPadrao;
 import br.ufrpe.gestao_feira.exceptions.*;
+import br.ufrpe.gestao_feira.repositorio.interfaces.IProdutorRepositorio;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProdutorRepositorio extends RepositorioPadrao<Produtor>
+public class ProdutorRepositorio extends RepositorioPadrao<Produtor> implements IProdutorRepositorio
 {
     @Override
     public boolean existe(Produtor obj)

@@ -4,12 +4,13 @@ import br.ufrpe.gestao_feira.classesbasicas.EdicaoFeira;
 import br.ufrpe.gestao_feira.classesbasicas.Participacao;
 import br.ufrpe.gestao_feira.classesbasicas.Produtor;
 import br.ufrpe.gestao_feira.repositorio.abstrato.RepositorioPadrao;
+import br.ufrpe.gestao_feira.repositorio.interfaces.IParticipacaoRepositorio;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ParticipacaoRepositorio extends RepositorioPadrao<Participacao>
+public class ParticipacaoRepositorio extends RepositorioPadrao<Participacao> implements IParticipacaoRepositorio
 {
 
     public List<Participacao> procurarProdutor(Produtor produtor)

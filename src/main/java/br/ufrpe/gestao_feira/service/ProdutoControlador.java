@@ -3,15 +3,15 @@ package br.ufrpe.gestao_feira.service;
 import br.ufrpe.gestao_feira.classesbasicas.*;
 import br.ufrpe.gestao_feira.exceptions.*;
 import br.ufrpe.gestao_feira.repositorio.ProdutoRepositorio;
-import br.ufrpe.gestao_feira.repositorio.interfaces.IRepositorio;
+import br.ufrpe.gestao_feira.repositorio.interfaces.*;
 
 import java.util.List;
 
 public class ProdutoControlador
 {
-    private final IRepositorio<Produto> repositorio;
+    private final IProdutoRepositorio repositorio;
 
-    public ProdutoControlador(ProdutoRepositorio produtoRepositorio)
+    public ProdutoControlador(IProdutoRepositorio produtoRepositorio)
     {
         this.repositorio = produtoRepositorio;
     }
@@ -47,19 +47,12 @@ public class ProdutoControlador
         {
             throw new IllegalArgumentException("Nome inválido");
         }
-        if(repositorio instanceof ProdutoRepositorio repo)
-        {
-            List<Produto> produtosEncontrados = repo.procurarPorNome(nome);
+        List<Produto> produtosEncontrados = repositorio.procurarPorNome(nome);
             if (produtosEncontrados.isEmpty())
             {
                 throw new ProdutoInexistenteException(nome);
             }
-            return produtosEncontrados;
-        }
-        else
-        {
-            throw new UnsupportedOperationException("O controlador não tem acesso aos métodos do repositorio");
-        }
+        return produtosEncontrados;
     }
     public List<Produto> buscarTodos()
     {

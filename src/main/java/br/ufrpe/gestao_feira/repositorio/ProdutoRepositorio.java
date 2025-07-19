@@ -3,12 +3,14 @@ package br.ufrpe.gestao_feira.repositorio;
 import br.ufrpe.gestao_feira.classesbasicas.Produto;
 import br.ufrpe.gestao_feira.classesbasicas.Produtor;
 import br.ufrpe.gestao_feira.repositorio.abstrato.RepositorioPadrao;
+import br.ufrpe.gestao_feira.repositorio.interfaces.IProdutoRepositorio;
+import br.ufrpe.gestao_feira.repositorio.interfaces.IRepositorio;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class ProdutoRepositorio extends RepositorioPadrao<Produto>
+public class ProdutoRepositorio extends RepositorioPadrao<Produto> implements IProdutoRepositorio
 {
 
     @Override

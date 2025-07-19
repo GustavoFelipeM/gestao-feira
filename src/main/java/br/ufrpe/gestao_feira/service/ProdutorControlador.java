@@ -10,11 +10,11 @@ import java.util.List;
 
 public class ProdutorControlador
 {
-    private final IRepositorio<Produtor> repositorioControlador;
-    private final IRepositorio<Produto> repositorioProdutoControlador;
-    private final IRepositorio<Participacao> repositorioParticipacaoControlador;
+    private final IProdutorRepositorio repositorioControlador;
+    private final IProdutoRepositorio repositorioProdutoControlador;
+    private final IParticipacaoRepositorio repositorioParticipacaoControlador;
 
-    public ProdutorControlador (ProdutorRepositorio produtorRepositorio, ProdutoRepositorio produtoRepositorio, ParticipacaoRepositorio participacaoRepositorio)
+    public ProdutorControlador (IProdutorRepositorio produtorRepositorio, IProdutoRepositorio produtoRepositorio, IParticipacaoRepositorio participacaoRepositorio)
     {
         this.repositorioControlador = produtorRepositorio;
         this.repositorioProdutoControlador = produtoRepositorio;
@@ -25,7 +25,7 @@ public class ProdutorControlador
     {
         if (produtor == null || produtor.getCpfCnpj() == null || produtor.getCpfCnpj().isBlank() || produtor.getNome() == null || produtor.getNome().isBlank())
         {
-            throw new IllegalArgumentException("Campos obrigatórios nulos"); //TODO Tratar essa exception
+            throw new IllegalArgumentException("Campos obrigatórios nulos");
         }
 
         else
@@ -40,59 +40,41 @@ public class ProdutorControlador
         {
             throw new ProdutorInexistenteException(produtor.getCpfCnpj());
         }
+        repositorioControlador.remove(produtor);
 
-        else
-        {
-            repositorioControlador.remove(produtor);
-        }
     }
 
     public Produtor buscarPorCpfCnpj(String cpfCnpj) throws Exception
     {
         if (cpfCnpj == null || cpfCnpj.isBlank())
         {
-            throw new IllegalArgumentException("CPF/CNPJ invalido");
+            throw new IllegalArgumentException("CPF/CNPJ não pode ser nulo ou vazio");
         }
 
-        if (repositorioControlador instanceof ProdutorRepositorio repo)
-        {
-            Produtor produtor = repo.procurarPorCpfCnpj(cpfCnpj);
+        Produtor produtor = repositorioControlador.procurarPorCpfCnpj(cpfCnpj);
 
-            if (produtor == null)
-            {
-                throw new ProdutorInexistenteException(cpfCnpj);
-            }
-            return produtor;
-        }
-        else
+        if (produtor == null)
         {
-            throw new UnsupportedOperationException("Controlador não tem acesso aos métodos do repositório");
+            throw new ProdutorInexistenteException(cpfCnpj);
         }
+        return produtor;
     }
 
     public List<Produtor> buscarPorNome(String nome) throws Exception
     {
         if(nome == null || nome.isBlank())
         {
-            throw new IllegalArgumentException("Nome invalido");
+            throw new IllegalArgumentException("Nome não pode ser nulo ou vazio");
         }
 
-        if(repositorioControlador instanceof ProdutorRepositorio)
+        List<Produtor> produtoresEncontrados =  repositorioControlador.procurarPorNome(nome);
+
+        if(produtoresEncontrados.isEmpty())
         {
-            List<Produtor> produtoresEncontrados = ((ProdutorRepositorio) repositorioControlador).procurarPorNome(nome);
-
-            if(produtoresEncontrados.isEmpty())
-            {
-                throw new NomeInexistente(nome);
-            }
-            return produtoresEncontrados;
-
+            throw new NomeInexistente(nome);
         }
+        return produtoresEncontrados;
 
-        else
-        {
-            throw new UnsupportedOperationException("Controlador não tem acesso aos métodos do repositório");
-        }
 
     }
 
@@ -100,22 +82,17 @@ public class ProdutorControlador
     {
         if (categoria == null || categoria.isBlank())
         {
-            throw new IllegalArgumentException("Categoria invalida");
+            throw new IllegalArgumentException("Categoria não pode ser nula ou vazia");
         }
 
-        if (repositorioControlador instanceof ProdutorRepositorio repo)
+
+        List <Produtor> produtoresEncontrados = repositorioControlador.procurarPorCategoria(categoria);
+        if (produtoresEncontrados.isEmpty())
         {
-            List <Produtor> produtoresEncontrados = repo.procurarPorCategoria(categoria);
-            if (produtoresEncontrados == null)
-            {
-                throw new CategoriaInexistente(categoria);
-            }
-            return produtoresEncontrados;
+            throw new CategoriaInexistente(categoria);
         }
-        else
-        {
-            throw new UnsupportedOperationException("Controlador não tem acesso aos métodos do repositório");
-        }
+        return produtoresEncontrados;
+
     }
 
     public List<Produtor> buscarTodos()
@@ -125,33 +102,19 @@ public class ProdutorControlador
 
     public void inativarProdutor(String cpfCnpj) throws Exception
     {
-        try
-        {
-            Produtor produtor = buscarPorCpfCnpj(cpfCnpj);
-            produtor.setAtivo(false);
-        }
-        catch (ProdutorInexistenteException produtorNaoEncontrado)
-        {
-            throw new IllegalArgumentException("CPF/CNPJ invalido", produtorNaoEncontrado);
-        }
+        Produtor produtor = buscarPorCpfCnpj(cpfCnpj);
+        produtor.setAtivo(false);
     }
 
     public List<Produto> buscarProdutosDoProdutor(String cpfCnpj) throws Exception
     {
         Produtor produtor = buscarPorCpfCnpj(cpfCnpj);
-        if (repositorioProdutoControlador instanceof ProdutoRepositorio repo)
+        List<Produto> produtosDoProdutor = repositorioProdutoControlador.procurarProdutor(produtor);
+        if(produtosDoProdutor.isEmpty())
         {
-           List<Produto> produtosDoProdutor = repo.procurarProdutor(produtor);
-           if(produtosDoProdutor.isEmpty())
-           {
-               throw new ProdutorSemProdutosException(produtor);
-           }
-           return produtosDoProdutor;
+            throw new ProdutorSemProdutosException(produtor);
         }
-        else
-        {
-            throw new UnsupportedOperationException("Controlador não tem acesso aos métodos do repositório");
-        }
+        return produtosDoProdutor;
     }
 
     public List<EdicaoFeira> buscarEdicoesFeiraDoProdutor(String cpfCnpj) throws Exception
@@ -159,28 +122,21 @@ public class ProdutorControlador
         Produtor produtor = buscarPorCpfCnpj(cpfCnpj);
         List<Participacao> participacoes;
         List<EdicaoFeira> edicoesFeira = new ArrayList<>();
-        if (repositorioParticipacaoControlador instanceof ParticipacaoRepositorio repo)
+
+        participacoes = repositorioParticipacaoControlador.procurarProdutor(produtor);
+        for (Participacao p : participacoes)
         {
-            participacoes = repo.procurarProdutor(produtor);
-            for (Participacao p : participacoes)
+            EdicaoFeira edicao = p.getEdicaoFeira();
+            if(!edicoesFeira.contains(edicao))
             {
-                EdicaoFeira edicao = p.getEdicaoFeira();
-                if(!edicoesFeira.contains(edicao))
-                {
                     edicoesFeira.add(edicao);
                 }
-            }
-            if (edicoesFeira.isEmpty())
-            {
-                throw new ProdutorSemParticipacoesException(produtor);
-            }
-            return edicoesFeira;
         }
-        else
+        if (edicoesFeira.isEmpty())
         {
-            throw new UnsupportedOperationException("Controlador não tem acesso aos métodos do repositório");
+            throw new ProdutorSemParticipacoesException(produtor);
         }
-
+        return edicoesFeira;
     }
 
 }
