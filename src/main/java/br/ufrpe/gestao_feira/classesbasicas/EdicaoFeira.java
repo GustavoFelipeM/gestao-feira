@@ -52,6 +52,10 @@ public class EdicaoFeira {
     {
         this.descricao = descricao;
     }
+    public Participacao[] getParticipacoes()
+    {
+        return participacoes;
+    }
 
 
    public boolean checarMaximoBancas()
@@ -70,28 +74,5 @@ public class EdicaoFeira {
         return estaCheio;
     }
 
-    public void addParticipacao(Participacao participacao)
-    {
-
-        if (!checarMaximoBancas())
-        {
-            for (int i=0; i<participacoes.length ; i++)
-            {
-                if (participacoes[i] == null)
-                {
-                    participacoes[i] = participacao;
-                    participacao.setBanca(i);
-                    break;
-
-
-                }
-            }
-        }
-
-        else
-        {
-            throw new IllegalStateException("Não é possível adicionar mais produtores, limite de bancas atingido");  //TODO Try Catch IllegalStateException
-        }
-    }
 
 }

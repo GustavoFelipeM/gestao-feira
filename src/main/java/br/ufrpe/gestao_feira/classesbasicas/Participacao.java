@@ -5,7 +5,7 @@ public class Participacao {
     private EdicaoFeira edicaoFeira;
     private int banca;
 
-    Participacao(Produtor produtor, EdicaoFeira edicaoFeira)
+    public Participacao(Produtor produtor, EdicaoFeira edicaoFeira)
     {
         this.produtor = produtor;
         this.edicaoFeira = edicaoFeira;
