@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.gestao_feira.gui.CadastrarProdutor">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <right>
+            <AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #00afb9;" BorderPane.alignment="CENTER">
+               <children>
+                  <FontAwesomeIconView fill="WHITE" glyphName="LEAF" layoutX="75.0" layoutY="253.0" size="150" />
+                  <Button layoutX="23.0" layoutY="53.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+                  <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" layoutX="272.0" layoutY="28.0" size="18" />
+                  <Button layoutX="219.0" layoutY="364.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+                  <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" layoutX="273.0" layoutY="387.0" size="18" text="" />
+               </children></AnchorPane>
+         </right>
+         <left>
+            <AnchorPane prefHeight="400.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField layoutX="72.0" layoutY="102.0" promptText="CPF/CNPJ" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <TextField layoutX="72.0" layoutY="139.0" promptText="E-MAIL" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <TextField layoutX="72.0" layoutY="176.0" promptText="TELEFONE" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <TextField layoutX="72.0" layoutY="213.0" promptText="CATEGORIA" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <Button layoutX="104.0" layoutY="281.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" style="-fx-background-color: #00afb9;" text="Cadastrar" />
+                  <Text fill="#00afb9" layoutX="50.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de Produtores">
+                     <font>
+                        <Font size="19.0" />
+                     </font>
+                  </Text>
+                  <FontAwesomeIconView fill="#00afb9" glyphName="USER" layoutX="51.0" layoutY="126.0" size="15" />
+                  <FontAwesomeIconView fill="#00afb9" glyphName="ENVELOPE" layoutX="50.0" layoutY="162.0" size="15" />
+                  <FontAwesomeIconView fill="#00afb9" glyphName="PHONE" layoutX="52.0" layoutY="199.0" size="15" />
+                  <FontAwesomeIconView fill="#00afb9" glyphName="LIST" layoutX="51.0" layoutY="236.0" size="15" />
+                  <Button layoutX="24.0" layoutY="361.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
+                  <FontAwesomeIconView fill="#00afb9" glyphName="GEAR" layoutX="9.0" layoutY="389.0" size="18" />
+                  <FontAwesomeIconView fill="#00afb9" glyphName="USER_PLUS" layoutX="130.0" layoutY="47.0" size="25" />
+               </children>
+            </AnchorPane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
