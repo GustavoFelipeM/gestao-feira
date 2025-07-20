@@ -2,12 +2,13 @@ package br.ufrpe.gestao_feira.repositorio;
 
 import br.ufrpe.gestao_feira.classesbasicas.EdicaoFeira;
 import br.ufrpe.gestao_feira.repositorio.abstrato.RepositorioPadrao;
+import br.ufrpe.gestao_feira.repositorio.interfaces.IEdicaoFeiraRepositorio;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EdicaoFeiraRepositorio extends RepositorioPadrao<EdicaoFeira>
+public class EdicaoFeiraRepositorio extends RepositorioPadrao<EdicaoFeira> implements IEdicaoFeiraRepositorio
 {
 
     @Override
