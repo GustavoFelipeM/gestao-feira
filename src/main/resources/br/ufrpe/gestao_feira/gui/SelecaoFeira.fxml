@@ -15,10 +15,14 @@
             <AnchorPane prefHeight="409.0" prefWidth="300.0" style="-fx-background-color: #00afb9;" BorderPane.alignment="CENTER">
                <children>
                   <FontAwesomeIconView fill="WHITE" glyphName="LEAF" layoutX="110.0" layoutY="233.0" size="80" />
-                  <Button layoutX="190.0" layoutY="91.0" mnemonicParsing="false" style="-fx-background-color: transparente;" />
-                  <Button layoutX="130.0" layoutY="319.0" mnemonicParsing="false" style="-fx-background-color: transparent;" textFill="WHITE" />
-                  <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" layoutX="277.0" layoutY="34.0" size="18" />
-                  <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" layoutX="277.0" layoutY="397.0" size="18" />
+                  <Button layoutX="267.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: transparente;">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="18" />
+                     </graphic></Button>
+                  <Button layoutX="266.0" layoutY="380.0" mnemonicParsing="false" style="-fx-background-color: transparent;" textFill="WHITE">
+                     <graphic>
+                        <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" size="18" />
+                     </graphic></Button>
                </children>
             </AnchorPane>
          </right>
@@ -33,8 +37,10 @@
                      </font>
                   </Text>
                   <FontAwesomeIconView fill="#00afb9" glyphName="FOLDER" layoutX="143.0" layoutY="74.0" size="25" />
-                  <Button layoutX="125.0" layoutY="315.0" mnemonicParsing="false" style="-fx-background-color: transparent;" />
-                  <FontAwesomeIconView fill="#00afb9" glyphName="GEAR" layoutX="18.0" layoutY="397.0" size="18" />
+                  <Button layoutX="9.0" layoutY="380.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <FontAwesomeIconView fill="#00afb9" glyphName="GEAR" size="18" />
+                     </graphic></Button>
                </children>
             </AnchorPane>
          </left>
