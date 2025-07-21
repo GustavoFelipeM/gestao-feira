@@ -1,12 +1,14 @@
 package br.ufrpe.gestao_feira.classesbasicas;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Venda {
     private Produtor produtor;
-    private ArrayList<ItemVenda> itensVenda;
+    private List<ItemVenda> itensVenda;
     private EdicaoFeira edicaoFeira;
     private String observacoes;
+    private int banca;
 
     public Venda(Produtor produtor, EdicaoFeira edicaoFeira, String observacoes)
     {
@@ -14,6 +16,7 @@ public class Venda {
         this.edicaoFeira=edicaoFeira;
         this.observacoes=observacoes;
         this.itensVenda= new ArrayList<>();
+        banca = -1;
     }
 
     public void adicionarItemVenda(ItemVenda itemVenda)
@@ -60,6 +63,21 @@ public class Venda {
         return vendaTotal;
 
     }
+    public int getBanca()
+    {
+        return banca;
+    }
+    public void setBanca(int banca)
+    {
+        if(this.banca == -1)
+        {
+            this.banca = banca;
+        }
+        else
+        {
+            throw new IllegalStateException("A banca já foi definida e não pode ser alterada."); //TODO Try/Catch IllegalStateException
+        }
+    }
 
     public String getObservacoes()
     {
@@ -71,7 +89,7 @@ public class Venda {
         this.observacoes = observacoes;
     }
 
-    public ArrayList<ItemVenda> getItensVenda()
+    public List<ItemVenda> getItensVenda()
     {
         return itensVenda;
     }
