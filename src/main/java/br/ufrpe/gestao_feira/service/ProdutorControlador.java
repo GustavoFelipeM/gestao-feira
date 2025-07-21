@@ -102,8 +102,41 @@ public class ProdutorControlador
 
     public void inativarProdutor(String cpfCnpj) throws Exception
     {
+        if (cpfCnpj == null || cpfCnpj.isBlank())
+        {
+            throw new IllegalArgumentException("CPF/CNPJ não pode ser nulo ou vazio");
+        }
         Produtor produtor = buscarPorCpfCnpj(cpfCnpj);
+        if (produtor == null)
+        {
+            throw new ProdutorInexistenteException(cpfCnpj);
+        }
+        if(!produtor.getAtivo())
+        {
+            throw new IllegalStateException("Produtor já está inativo");
+        }
         produtor.setAtivo(false);
+    }
+    public void ativarProdutor(String cpfCnpj) throws Exception
+    {
+        if (cpfCnpj == null || cpfCnpj.isBlank())
+        {
+            throw new IllegalArgumentException("CPF/CNPJ não pode ser nulo ou vazio.");
+        }
+
+        Produtor produtor = buscarPorCpfCnpj(cpfCnpj);
+
+        if (produtor == null)
+        {
+            throw new IllegalStateException("Produtor não encontrado.");
+        }
+
+        if (produtor.getAtivo())
+        {
+            throw new IllegalStateException("Produtor já está ativo.");
+        }
+
+        produtor.setAtivo(true);
     }
 
     public List<Produto> buscarProdutosDoProdutor(String cpfCnpj) throws Exception

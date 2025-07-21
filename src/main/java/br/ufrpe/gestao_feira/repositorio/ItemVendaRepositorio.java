@@ -3,11 +3,12 @@ package br.ufrpe.gestao_feira.repositorio;
 import br.ufrpe.gestao_feira.classesbasicas.ItemVenda;
 import br.ufrpe.gestao_feira.classesbasicas.Produto;
 import br.ufrpe.gestao_feira.repositorio.abstrato.RepositorioPadrao;
+import br.ufrpe.gestao_feira.repositorio.interfaces.IItemVendaRepositorio;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemVendaRepositorio extends RepositorioPadrao<ItemVenda>
+public class ItemVendaRepositorio extends RepositorioPadrao<ItemVenda> implements IItemVendaRepositorio
 {
 
    public List<ItemVenda> procurarPorProduto (Produto produto)
