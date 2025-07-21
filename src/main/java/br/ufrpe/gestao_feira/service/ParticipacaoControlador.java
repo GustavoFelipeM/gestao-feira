@@ -6,11 +6,11 @@ import br.ufrpe.gestao_feira.repositorio.interfaces.IParticipacaoRepositorio;
 
 public class ParticipacaoControlador
 {
-    private final IParticipacaoRepositorio repostorioParticipacao;
+    private final IParticipacaoRepositorio repositorioParticipacao;
 
     public ParticipacaoControlador (IParticipacaoRepositorio repostorioParticipacao)
     {
-        this.repostorioParticipacao = repostorioParticipacao;
+        this.repositorioParticipacao = repostorioParticipacao;
     }
     public void agendarParticipacao(Produtor produtor, EdicaoFeira edicao) throws Exception
     {
@@ -46,7 +46,7 @@ public class ParticipacaoControlador
                 Participacao nova = new Participacao(produtor, edicao);
                 nova.setBanca(i);
                 participacoes[i] = nova;
-                repostorioParticipacao.add(nova);
+                repositorioParticipacao.add(nova);
                 return;
             }
         }
@@ -65,7 +65,7 @@ public class ParticipacaoControlador
             if (p != null && p.getProdutor().equals(produtor))
             {
                 participacoes[i] = null;
-                repostorioParticipacao.remove(p);
+                repositorioParticipacao.remove(p);
                 return;
             }
         }
