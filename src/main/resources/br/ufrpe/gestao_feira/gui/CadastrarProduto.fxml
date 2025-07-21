@@ -15,11 +15,11 @@
             <AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #00afb9;" BorderPane.alignment="CENTER">
                <children>
                   <FontAwesomeIconView fill="WHITE" glyphName="LEAF" layoutX="75.0" layoutY="253.0" size="150" />
-                  <Button layoutX="271.0" layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="botaoSairCadastrodeProdutos" layoutX="271.0" layoutY="1.0" mnemonicParsing="false" onAction="#sairTela" style="-fx-background-color: transparent;">
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="18" />
                      </graphic></Button>
-                  <Button layoutX="264.0" layoutY="367.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="botaoVoltarCadastrodeProdutos" layoutX="264.0" layoutY="367.0" mnemonicParsing="false" onAction="#voltarTela" style="-fx-background-color: transparent;">
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" size="18" text="" />
                      </graphic></Button>
@@ -28,11 +28,11 @@
          <left>
             <AnchorPane prefHeight="400.0" prefWidth="300.0" BorderPane.alignment="CENTER">
                <children>
-                  <TextField layoutX="72.0" layoutY="102.0" promptText="NOME" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
-                  <TextField layoutX="72.0" layoutY="139.0" promptText="DESCRIÇÃO" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
-                  <TextField layoutX="72.0" layoutY="176.0" promptText="PREÇO" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
-                  <TextField layoutX="72.0" layoutY="213.0" promptText="CATEGORIA" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
-                  <Button layoutX="104.0" layoutY="292.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="77.0" style="-fx-background-color: #00afb9;" text="Cadastrar" />
+                  <TextField fx:id="textFieldNomeCadastroProdutos" layoutX="72.0" layoutY="102.0" promptText="NOME" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <TextField fx:id="textFieldDescricaoCadastroProdutos" layoutX="72.0" layoutY="139.0" promptText="DESCRIÇÃO" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <TextField fx:id="textFieldPrecoCadastroProdutos" layoutX="72.0" layoutY="176.0" promptText="PREÇO" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <TextField fx:id="textFieldCategoriaCadastroProdutos" layoutX="72.0" layoutY="213.0" promptText="CATEGORIA" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <Button fx:id="botaoCadastrarCadastrodeProdutos" layoutX="104.0" layoutY="292.0" mnemonicParsing="false" onAction="#cadastrar" prefHeight="31.0" prefWidth="77.0" style="-fx-background-color: #00afb9;" text="Cadastrar" />
                   <Text fill="#00afb9" layoutX="50.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadastro de Produtos">
                      <font>
                         <Font size="19.0" />
@@ -42,12 +42,12 @@
                   <FontAwesomeIconView fill="#00afb9" glyphName="COMMENT" layoutX="50.0" layoutY="162.0" size="15" />
                   <FontAwesomeIconView fill="#00afb9" glyphName="MONEY" layoutX="50.0" layoutY="199.0" size="15" />
                   <FontAwesomeIconView fill="#00afb9" glyphName="LIST" layoutX="51.0" layoutY="236.0" size="15" />
-                  <Button layoutX="2.0" layoutY="372.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="botaoConfigCadastrodeProdutos" layoutX="2.0" layoutY="372.0" mnemonicParsing="false" onAction="#abrirConfig" style="-fx-background-color: transparent;">
                      <graphic>
                         <FontAwesomeIconView fill="#00afb9" glyphName="GEAR" size="18" />
                      </graphic></Button>
                   <FontAwesomeIconView fill="#00afb9" glyphName="SHOPPING_CART" layoutX="130.0" layoutY="47.0" size="25" />
-                  <TextField layoutX="72.0" layoutY="250.0" promptText="PRODUTOR ASSOCIADO" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <TextField fx:id="textFieldProdutorCadastroProdutos" layoutX="72.0" layoutY="250.0" promptText="PRODUTOR ASSOCIADO" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
                   <FontAwesomeIconView fill="#00afb9" glyphName="USER" layoutX="53.0" layoutY="273.0" size="15" />
                </children>
             </AnchorPane>

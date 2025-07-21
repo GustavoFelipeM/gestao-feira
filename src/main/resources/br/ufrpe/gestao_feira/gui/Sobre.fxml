@@ -7,7 +7,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrpe.gestao_feira.gui.Sobre">
    <children>
       <BorderPane layoutX="-5.0" layoutY="-4.0" prefHeight="406.0" prefWidth="606.0">
@@ -27,7 +26,7 @@
                   </Text>
                   <Text layoutX="44.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aplicativo de gestão de feira desenvolvido em Java e JavaFX pelos alunos Gustavo Felipe Penha do Monte e Lucas Carvalho do Espirito Santo" wrappingWidth="547.978515625" />
                   <FontAwesomeIconView fill="#00afb9" glyphName="TICKET" layoutX="237.0" layoutY="39.0" size="25" />
-                  <Button layoutX="19.0" layoutY="267.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="568.0" style="-fx-border-color: #00afb9;" text="Voltar" />
+                  <Button fx:id="botaoVoltarSobre" layoutX="19.0" layoutY="267.0" mnemonicParsing="false" onAction="#voltarTela" prefHeight="25.0" prefWidth="568.0" style="-fx-border-color: #00afb9;" text="Voltar" />
                </children>
             </AnchorPane>
          </center>

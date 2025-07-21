@@ -14,9 +14,9 @@
          <left>
             <AnchorPane prefHeight="400.0" prefWidth="300.0" BorderPane.alignment="CENTER">
                <children>
-                  <ComboBox layoutX="75.0" layoutY="126.0" prefWidth="150.0" promptText="PRODUTORES" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
-                  <ComboBox layoutX="75.0" layoutY="162.0" prefWidth="150.0" promptText="ATIVAR/INATIVAR" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
-                  <Button layoutX="126.0" layoutY="200.0" mnemonicParsing="false" style="-fx-background-color: #00afb9;" text="Enviar" />
+                  <ComboBox fx:id="comboBoxProdutoresGerenciaProdutores" layoutX="75.0" layoutY="126.0" onAction="#comboBoxProdutores" prefWidth="150.0" promptText="PRODUTORES" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <ComboBox fx:id="comboBoxAtivarDesativarGerenciaProdutores" layoutX="75.0" layoutY="162.0" onAction="#ativarDesativar" prefWidth="150.0" promptText="ATIVAR/INATIVAR" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <Button fx:id="botaoEnviarGerenciaProdutores" layoutX="126.0" layoutY="200.0" mnemonicParsing="false" onAction="#enviar" style="-fx-background-color: #00afb9;" text="Enviar" />
                   <Text fill="#00afb9" layoutX="50.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="GERÊNCIA DE PRODUTORES">
                      <font>
                         <Font size="16.0" />
@@ -25,7 +25,7 @@
                   <FontAwesomeIconView fill="#00afb9" glyphName="USERS" layoutX="51.0" layoutY="149.0" size="18" />
                   <FontAwesomeIconView fill="#00afb9" glyphName="SHIELD" layoutX="54.0" layoutY="186.0" size="18" />
                   <FontAwesomeIconView fill="#00afb9" glyphName="FILTER" layoutX="140.0" layoutY="51.0" size="25" />
-                  <Button layoutX="2.0" layoutY="370.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="botaoConfigGerenciaProdutores" layoutX="2.0" layoutY="370.0" mnemonicParsing="false" onAction="#abrirConfig" style="-fx-background-color: transparent;">
                      <graphic>
                         <FontAwesomeIconView fill="#00afb9" glyphName="GEAR" size="18" />
                      </graphic></Button>
@@ -36,11 +36,11 @@
             <AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #00afb9;" BorderPane.alignment="CENTER">
                <children>
                   <FontAwesomeIconView fill="WHITE" glyphName="LEAF" layoutX="127.0" layoutY="190.0" size="60" />
-                  <Button layoutX="268.0" layoutY="371.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="botaoVoltarGerenciaProdutores" layoutX="268.0" layoutY="371.0" mnemonicParsing="false" onAction="#voltarTela" style="-fx-background-color: transparent;">
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" size="18" />
                      </graphic></Button>
-                  <Button layoutX="271.0" layoutY="1.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="botaoSairGerenciaProdutores" layoutX="271.0" layoutY="1.0" mnemonicParsing="false" onAction="#sairTela" style="-fx-background-color: transparent;">
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="18" />
                      </graphic></Button>

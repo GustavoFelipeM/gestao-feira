@@ -15,11 +15,11 @@
             <AnchorPane prefHeight="409.0" prefWidth="300.0" style="-fx-background-color: #00afb9;" BorderPane.alignment="CENTER">
                <children>
                   <FontAwesomeIconView fill="WHITE" glyphName="LEAF" layoutX="110.0" layoutY="233.0" size="80" />
-                  <Button layoutX="267.0" layoutY="11.0" mnemonicParsing="false" style="-fx-background-color: transparente;">
+                  <Button fx:id="botaoSairSelecaoFeira" layoutX="267.0" layoutY="11.0" mnemonicParsing="false" onAction="#sairTela" style="-fx-background-color: transparente;">
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="CLOSE" size="18" />
                      </graphic></Button>
-                  <Button layoutX="266.0" layoutY="380.0" mnemonicParsing="false" style="-fx-background-color: transparent;" textFill="WHITE">
+                  <Button fx:id="botaoVoltarSelecaoFeira" layoutX="266.0" layoutY="380.0" mnemonicParsing="false" onAction="#voltarTela" style="-fx-background-color: transparent;" textFill="WHITE">
                      <graphic>
                         <FontAwesomeIconView fill="WHITE" glyphName="ARROW_LEFT" size="18" />
                      </graphic></Button>
@@ -29,15 +29,15 @@
          <left>
             <AnchorPane prefHeight="409.0" prefWidth="300.0" BorderPane.alignment="CENTER">
                <children>
-                  <ComboBox layoutX="81.0" layoutY="154.0" prefWidth="150.0" promptText="EDIÇÕES DE FEIRAS" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
-                  <Button layoutX="131.0" layoutY="205.0" mnemonicParsing="false" style="-fx-background-color: #00afb9;" text="Enviar" />
+                  <ComboBox fx:id="comboBoxEdicoesFeiraSelecaoFeiras" layoutX="81.0" layoutY="154.0" onAction="#comboBoxSelecionada" prefWidth="150.0" promptText="EDIÇÕES DE FEIRAS" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <Button fx:id="botaoEnviarSelecaoFeira" layoutX="131.0" layoutY="205.0" mnemonicParsing="false" onAction="#enviar" style="-fx-background-color: #00afb9;" text="Enviar" />
                   <Text fill="#00afb9" layoutX="71.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seleção de Feiras">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Text>
                   <FontAwesomeIconView fill="#00afb9" glyphName="FOLDER" layoutX="143.0" layoutY="74.0" size="25" />
-                  <Button layoutX="9.0" layoutY="380.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="botaoConfigSelecaoFeira" layoutX="9.0" layoutY="380.0" mnemonicParsing="false" onAction="#abrirConfig" style="-fx-background-color: transparent;">
                      <graphic>
                         <FontAwesomeIconView fill="#00afb9" glyphName="GEAR" size="18" />
                      </graphic></Button>

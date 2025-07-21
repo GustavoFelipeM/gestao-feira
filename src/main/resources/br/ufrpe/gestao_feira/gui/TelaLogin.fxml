@@ -16,11 +16,11 @@
          <right>
             <AnchorPane prefHeight="400.0" prefWidth="300.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
                <children>
-                  <TextField layoutX="75.0" layoutY="150.0" promptText="CPF/CNPJ" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
-                  <PasswordField layoutX="75.0" layoutY="204.0" promptText="SENHA" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <TextField fx:id="textFieldCpfCnpjTelaLogin" layoutX="75.0" layoutY="150.0" promptText="CPF/CNPJ" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
+                  <PasswordField fx:id="passwordFieldSenhaTelaLogin" layoutX="75.0" layoutY="204.0" promptText="SENHA" style="-fx-background-color: transparent; -fx-border-color: #00afb9; -fx-border-width: 0px 0px 2px 0px;" />
                   <FontAwesomeIconView fill="#00afb9" glyphName="USER" layoutX="50.0" layoutY="174.0" selectionFill="#00afb9" size="20" />
                   <FontAwesomeIconView fill="#00afb9" glyphName="KEY" layoutX="47.0" layoutY="230.0" size="20" />
-                  <Button layoutX="113.0" layoutY="246.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="74.0" style="-fx-background-color: #00afb9;" text="LOGIN" />
+                  <Button fx:id="botaoLoginTelaLogin" layoutX="113.0" layoutY="246.0" mnemonicParsing="false" onAction="#login" prefHeight="35.0" prefWidth="74.0" style="-fx-background-color: #00afb9;" text="LOGIN" />
                   <FontAwesomeIconView fill="#00afb9" glyphName="USERS" layoutX="134.0" layoutY="83.0" size="30" />
                   <Hyperlink layoutX="83.0" layoutY="346.0" text="Esqueceu sua senha?" />
                   <Text fill="#00afb9" layoutX="91.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tela de Login">

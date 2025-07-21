@@ -13,12 +13,12 @@
          <bottom>
             <AnchorPane prefHeight="547.0" prefWidth="623.0" BorderPane.alignment="CENTER">
                <children>
-                  <Button layoutX="215.0" layoutY="233.0" mnemonicParsing="false" style="-fx-border-color: #00afb9;" text="Cadastrar Edição de Feira">
+                  <Button fx:id="botaoCadastrarEdicaoFeiraTelaPrincipalAdm" layoutX="215.0" layoutY="233.0" mnemonicParsing="false" onAction="#cadastrarEdicaoFeira" style="-fx-border-color: #00afb9;" text="Cadastrar Edição de Feira">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button layoutX="215.0" layoutY="278.0" mnemonicParsing="false" style="-fx-border-color: #00afb9;" text="Relatórios da Feira">
+                  <Button fx:id="botaoRelatoriosFeiraTelaPrincipalAdm" layoutX="215.0" layoutY="278.0" mnemonicParsing="false" onAction="#abrirRelatoriosFeira" style="-fx-border-color: #00afb9;" text="Relatórios da Feira">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -35,11 +35,11 @@
                         <FontAwesomeIconView fill="WHITE" glyphName="LEAF" layoutX="145.0" layoutY="58.0" size="35" />
                      </children>
                   </AnchorPane>
-                  <Button layoutX="3.0" layoutY="512.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="botaoConfigTelaPrincipalAdm" layoutX="3.0" layoutY="512.0" mnemonicParsing="false" onAction="#abrirConfig" style="-fx-background-color: transparent;">
                      <graphic>
                         <FontAwesomeIconView fill="#00afb9" glyphName="GEAR" size="25" />
                      </graphic></Button>
-                  <Button layoutX="564.0" layoutY="512.0" mnemonicParsing="false" style="-fx-background-color: transparent;">
+                  <Button fx:id="botaoSairTelaPrincipalAdm" layoutX="564.0" layoutY="512.0" mnemonicParsing="false" onAction="#sairTela" style="-fx-background-color: transparent;">
                      <graphic>
                         <FontAwesomeIconView fill="#00afb9" glyphName="POWER_OFF" size="25" />
                      </graphic></Button>
