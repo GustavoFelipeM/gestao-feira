@@ -1,12 +1,14 @@
 package br.ufrpe.gestao_feira.gui;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+import br.ufrpe.gestao_feira.classesbasicas.Produto;
+import br.ufrpe.gestao_feira.classesbasicas.Produtor;
+import br.ufrpe.gestao_feira.service.ProdutoControlador;
+import br.ufrpe.gestao_feira.service.ProdutorControlador;
+import br.ufrpe.gestao_feira.exceptions.ProdutorInexistenteException;
+
 import javafx.event.ActionEvent;
-import javafx.stage.Stage;
-import javafx.scene.Node;
+import javafx.fxml.FXML;
+import javafx.scene.control.*;
 
 public class CadastrarProduto {
 
@@ -16,39 +18,41 @@ public class CadastrarProduto {
     @FXML private TextField textFieldCategoriaCadastroProdutos;
     @FXML private TextField textFieldProdutorCadastroProdutos;
 
+    private ProdutoControlador produtoControlador;
+    private ProdutorControlador produtorControlador;
+
+    // ✅ Injeção de dependência dos controladores
+    public void setControladores(ProdutoControlador produtoCtrl, ProdutorControlador produtorCtrl) {
+        this.produtoControlador = produtoCtrl;
+        this.produtorControlador = produtorCtrl;
+    }
+
     @FXML
     private void cadastrar(ActionEvent evento) {
-        String nome = textFieldNomeCadastroProdutos.getText();
-        String descricao = textFieldDescricaoCadastroProdutos.getText();
-        String preco = textFieldPrecoCadastroProdutos.getText();
-        String categoria = textFieldCategoriaCadastroProdutos.getText();
-        String produtor = textFieldProdutorCadastroProdutos.getText();
+        try {
+            String nome = textFieldNomeCadastroProdutos.getText();
+            String descricao = textFieldDescricaoCadastroProdutos.getText();
+            double preco = Double.parseDouble(textFieldPrecoCadastroProdutos.getText());
+            String categoria = textFieldCategoriaCadastroProdutos.getText();
+            String cpfProdutor = textFieldProdutorCadastroProdutos.getText();
 
-        if (nome.isEmpty() || descricao.isEmpty() || preco.isEmpty() || categoria.isEmpty() || produtor.isEmpty()) {
-            mostrarAlerta("Erro", "Todos os campos devem ser preenchidos.");
-            return;
+            // Buscar o produtor real pelo CPF
+            Produtor produtor = produtorControlador.buscarPorCpfCnpj(cpfProdutor);
+
+            Produto produto = new Produto(nome, descricao, categoria, preco);
+
+            produtoControlador.cadastrarProduto(produto, produtor);
+
+            mostrarAlerta("Sucesso", "Produto cadastrado com sucesso!");
+            limparCampos();
+
+        } catch (ProdutorInexistenteException e) {
+            mostrarAlerta("Erro", "Produtor com CPF informado não encontrado.");
+        } catch (NumberFormatException e) {
+            mostrarAlerta("Erro", "Preço inválido.");
+        } catch (Exception e) {
+            mostrarAlerta("Erro", "Erro ao cadastrar produto: " + e.getMessage());
         }
-
-        // Aqui você pode adicionar lógica real de salvar o produto
-        mostrarAlerta("Sucesso", "Produto cadastrado com sucesso!");
-        limparCampos();
-    }
-
-    @FXML
-    private void sairTela(ActionEvent evento) {
-        Stage stage = (Stage) ((Node) evento.getSource()).getScene().getWindow();
-        stage.close();
-    }
-
-    @FXML
-    private void voltarTela(ActionEvent evento) {
-        // Aqui você pode abrir a tela anterior, por exemplo: TelaInicial.fxml
-        mostrarAlerta("Ação", "Voltar à tela anterior.");
-    }
-
-    @FXML
-    private void abrirConfig(ActionEvent evento) {
-        mostrarAlerta("Ação", "Abrir tela de configurações.");
     }
 
     private void limparCampos() {
@@ -60,7 +64,7 @@ public class CadastrarProduto {
     }
 
     private void mostrarAlerta(String titulo, String mensagem) {
-        Alert alert = new Alert(AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle(titulo);
         alert.setHeaderText(null);
         alert.setContentText(mensagem);
