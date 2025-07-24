@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-public class CadastrarProdutorController {
+public class CadastrarProdutor {
 
     @FXML
     private TextField campoNome;
