@@ -10,6 +10,22 @@ import java.util.List;
 
 public class ItemVendaRepositorio extends RepositorioPadrao<ItemVenda> implements IItemVendaRepositorio
 {
+    private static  ItemVendaRepositorio instance;
+
+    private ItemVendaRepositorio()
+    {
+        super();
+    }
+
+    public static synchronized ItemVendaRepositorio getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new ItemVendaRepositorio();
+        }
+        return instance;
+    }
+
 
    public List<ItemVenda> procurarPorProduto (Produto produto)
    {

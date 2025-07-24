@@ -9,6 +9,21 @@ import java.util.List;
 
 public class VendaRepositorio extends RepositorioPadrao<Venda> implements IVendaRepositorio
 {
+    private static VendaRepositorio instance;
+
+    private VendaRepositorio()
+    {
+        super();
+    }
+
+    public static synchronized VendaRepositorio getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new VendaRepositorio();
+        }
+        return instance;
+    }
 
     public List<Venda> buscarVendasPorProdutor (Produtor produtor)
     {

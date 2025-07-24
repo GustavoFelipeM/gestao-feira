@@ -12,6 +12,21 @@ import java.util.List;
 
 public class ParticipacaoRepositorio extends RepositorioPadrao<Participacao> implements IParticipacaoRepositorio
 {
+    private static ParticipacaoRepositorio instance;
+
+    private ParticipacaoRepositorio()
+    {
+        super();
+    }
+
+    public static synchronized ParticipacaoRepositorio getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new ParticipacaoRepositorio();
+        }
+        return instance;
+    }
 
     public List<Participacao> procurarProdutor(Produtor produtor)
     {

@@ -12,6 +12,21 @@ import java.util.List;
 
 public class ProdutoRepositorio extends RepositorioPadrao<Produto> implements IProdutoRepositorio
 {
+    private static ProdutoRepositorio instance;
+
+    private ProdutoRepositorio()
+    {
+        super();
+    }
+
+    public static synchronized ProdutoRepositorio getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new ProdutoRepositorio();
+        }
+        return instance;
+    }
 
     @Override
     public void add(Produto obj)

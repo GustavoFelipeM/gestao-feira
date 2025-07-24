@@ -10,6 +10,21 @@ import java.util.List;
 
 public class EdicaoFeiraRepositorio extends RepositorioPadrao<EdicaoFeira> implements IEdicaoFeiraRepositorio
 {
+    private static  EdicaoFeiraRepositorio instance;
+
+    private EdicaoFeiraRepositorio()
+    {
+        super();
+    }
+
+    public static synchronized EdicaoFeiraRepositorio getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new EdicaoFeiraRepositorio();
+        }
+        return instance;
+    }
 
     @Override
     public boolean existe(EdicaoFeira edicaoFeira)

@@ -11,6 +11,22 @@ import java.util.List;
 
 public class ProdutorRepositorio extends RepositorioPadrao<Produtor> implements IProdutorRepositorio
 {
+    private static ProdutorRepositorio instance;
+
+    private ProdutorRepositorio()
+    {
+        super();
+    }
+
+    public static synchronized ProdutorRepositorio getInstance()
+    {
+        if (instance == null)
+        {
+            instance = new ProdutorRepositorio();
+        }
+        return instance;
+    }
+
     @Override
     public boolean existe(Produtor obj)
     {
